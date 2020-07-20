@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic-Toc-Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,54 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
-    </body>
-</html>
+            <h1>Tic-Tac-Toe</h1>
+
+            <p id="message"></p>
+<div class="first">
+      <form id="sign-up">
+          <input name= "credentials[email]" placeholder="email here" type="text">
+          <input name= "credentials[password]" placeholder="password here" type="text">
+          <input name= "credentials[password_confirmation]" placeholder="confirm password here" type="text">
+          <button type="submit">Sign Up!</button>
+      </form>
+    </div>
+<div>
+      <form id="sign-in">
+      <input name="credentials[email]" type="text"placeholder="email here">
+      <input name="credentials[password]" type="text"  placeholder="password here">
+    <button type="submit">Sign In!</button>
+    </fieldset>
+  </form>
+</div>
+
+<div class= "second">
+  <form id="change-password">
+      <input name="passwords[old]" type="text" placeholder="current password">
+      <input name="passwords[new]" type="text" placeholder="new password">
+      <button type="submit">Change Password!</button>
+    </form>
+</div>
+<div class = "third">
+  <form id="sign-out">
+    <button type="submit">Sign Out!</button>
+    </form>
+  </div>
+
+
+    <!-- Add a container class, so we can use the bootstrap grid -->
+    <section class='container'>
+      <div class='row board'>
+        <div class='col-1 box'>X</div>
+        <div class='col-2 box'>X</div>
+        <div class='col-3 box'>X</div>
+        <div class='col-4 box'>X</div>
+        <div class='col-5 box'>X</div>
+        <div class='col-4 box'>X</div>
+        <div class='col-4 box'>X</div>
+        <div class='col-4 box'>X</div>
+        <div class='col-4 box'>X</div>
+      </div>
+    </section>
+
+  </body>
+  </html>
