@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
+ <!-- cute font-->
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+
+
     <head>
       <title>Tic-Toc-Toe</title>
+
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,54 +18,65 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-            <h1>Tic-Tac-Toe</h1>
+      <h1>Tic-Tac-Toe</h1>
 
-            <p id="message"></p>
-<div class="first">
-      <form id="sign-up">
+
+<p id="message"></p>
+
+<!-- user sign up page-->
+ <form id="sign-up">
           <input name= "credentials[email]" placeholder="email here" type="text">
           <input name= "credentials[password]" placeholder="password here" type="text">
           <input name= "credentials[password_confirmation]" placeholder="confirm password here" type="text">
           <button type="submit">Sign Up!</button>
       </form>
-    </div>
-<div>
+
       <form id="sign-in">
       <input name="credentials[email]" type="text"placeholder="email here">
-      <input name="credentials[password]" type="text"  placeholder="password here">
+      <input name="credentials[password]" type="password"  placeholder="password here">
     <button type="submit">Sign In!</button>
     </fieldset>
   </form>
-</div>
 
-<div class= "second">
   <form id="change-password">
-      <input name="passwords[old]" type="text" placeholder="current password">
-      <input name="passwords[new]" type="text" placeholder="new password">
+      <input name="password[old]" type="password" placeholder="current password">
+      <input name="password[new]" type="password" placeholder="new password">
       <button type="submit">Change Password!</button>
-    </form>
-</div>
-<div class = "third">
+</form>
+
   <form id="sign-out">
     <button type="submit">Sign Out!</button>
     </form>
-  </div>
+
+<!--user page ends-->
+
+  <div class="game-board">
+      <div data-id="0" class="inside-box">1</div>
+      <div data-id="1" class="inside-box">2</div>
+      <div data-id="2" class="inside-box">4</div>
+      <div data-id="3" class="inside-box">4</div>
+      <div data-id="4" class="inside-box">3</div>
+      <div data-id="5" class="inside-box">4</div>
+      <div data-id="4" class="inside-box">3</div>
+      <div data-id="6" class="inside-box" >4</div>
+      <div data-id="7" class="inside-box">4</div>
+
+    </div>
 
 
-    <!-- Add a container class, so we can use the bootstrap grid -->
-    <section class='container'>
-      <div class='row board'>
-        <div class='col-1 box'>X</div>
-        <div class='col-2 box'>X</div>
-        <div class='col-3 box'>X</div>
-        <div class='col-4 box'>X</div>
-        <div class='col-5 box'>X</div>
-        <div class='col-4 box'>X</div>
-        <div class='col-4 box'>X</div>
-        <div class='col-4 box'>X</div>
-        <div class='col-4 box'>X</div>
-      </div>
-    </section>
+<br>
+
+<div>
+<h2 class ="score"> Score: </h2>
+<h3 class="p1"> Player X: </h3>
+<h3 class="p2"> Player O: </h3>
+<h3 class="tie"> Tie </h3>
+
+</div>
+
+<div class="game-over">
+    </div>
+<button type="submit">New Game!</button>
 
   </body>
   </html>
