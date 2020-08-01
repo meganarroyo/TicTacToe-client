@@ -8,7 +8,8 @@ const signUpFailure = function (){
   $('#message').text('Sign up failure')
 }
 
-const signInSuccess = function (){
+const signInSuccess = function (data){
+  store.user = data.user
   $('#message').text('Signed in!')
 }
 
@@ -25,6 +26,7 @@ const changePasswordFailure = function (){
 }
 
 const signOutSuccess = function (){
+  store.user = null
   $('#message').text('Signed Out!')
 }
 

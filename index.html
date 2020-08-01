@@ -24,29 +24,31 @@
 <p id="message"></p>
 
 <!-- user sign up page-->
- <form id="sign-up">
-          <input name= "credentials[email]" placeholder="email here" type="text">
-          <input name= "credentials[password]" placeholder="password here" type="password">
-          <input name= "credentials[password_confirmation]" placeholder="confirm password here" type="password">
-          <button type="submit">Sign Up!</button>
+<div class="unauthenticated">
+        <form id="sign-up">
+        <input name="credentials[email]" placeholder="email here" type="email">
+        <input name="credentials[password]" placeholder="password here" type="password">
+        <input name="credentials[password_confirmation]" placeholder="confirm password here" type="password">
+        <button type="submit">Sign Up</button>
       </form>
 
       <form id="sign-in">
-      <input name="credentials[email]" type="text"placeholder="email here">
-      <input name="credentials[password]" type="password"  placeholder="password here">
-    <button type="submit">Sign In!</button>
-    </fieldset>
-  </form>
+        <input name="credentials[email]" placeholder="email here" type="email">
+        <input name="credentials[password]" placeholder="password here" type="password">
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
 
-  <form id="change-password">
-      <input name="password[old]" type="password" placeholder="current password">
-      <input name="password[new]" type="password" placeholder="new password">
-      <button type="submit">Change Password!</button>
-</form>
+<div class="authenticated">
+      <form id="change-password">
+        <input name="passwords[old]" placeholder="old password" type="password">
+        <input name="passwords[new]" placeholder="new password" type="password">
+        <button type="submit">Change Password</button>
+      </form>
 
-  <form id="sign-out">
-    <button type="submit">Sign Out!</button>
-    </form>
+      <form id="sign-out">
+        <button type="submit">Sign Out</button>
+      </form>
 
 <!--user page ends-->
 
@@ -58,7 +60,7 @@
       <div data-id="4" class="inside-box"></div>
       <div data-id="5" class="inside-box"></div>
       <div data-id="4" class="inside-box"></div>
-      <div data-id="6" class="inside-box"> </div>
+      <div data-id="6" class="inside-box"></div>
       <div data-id="7" class="inside-box"></div>
 
     </div>
@@ -76,7 +78,7 @@
 
 <div class="game-over">
     </div>
-<button type="submit">New Game!</button>
+<button id="newGame">New Game!</button>
 
   </body>
   </html>

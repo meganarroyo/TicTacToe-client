@@ -20,8 +20,7 @@ const signIn = function (formData) {
 }
 
 const signOut = function () {
-  console.log(store.user)
-  return $.ajax({
+    return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -31,6 +30,7 @@ const signOut = function () {
 }
 
 const changePassword = function (formData) {
+  console.log(store.user)
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
