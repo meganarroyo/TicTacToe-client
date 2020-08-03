@@ -29,7 +29,7 @@ const nextPlayer = currentPlayer === 'x' ? 'o' : 'x'
 
   if (response.game.over) {
     if (winner === 'draw') {
-      $('#message').text('Draw!')
+      $('#message').text('Tie Game!')
     }
     else {
       $('#message').text(`${currentPlayer} is the winner! Click "Start Game" to play again!`)
