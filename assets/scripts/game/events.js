@@ -1,3 +1,5 @@
+'use strict'
+
 // Require:
 const api = require('./api')
 const ui = require('./ui')
@@ -5,11 +7,11 @@ const store = require('../store')
 
 // Event Handler Functions:
 const onCreateGame = function (event) {
-  console.log('on create game!')
   event.preventDefault()
 
   api.createGame()
     .then(ui.createGameSuccess)
+    // indexGame under createGame - each game created will increase count by 1
     .then(api.indexGame)
     .then(ui.indexGameSuccess)
     .catch(ui.createGameFailure)
@@ -50,21 +52,22 @@ const gameOver = function (index) {
   return 'draw'
 }
 
-const makeMove = function (event) {
+const makeMove = function (index) {
   event.preventDefault()
-    const index = $(event.target).data("id")
+
   // Cannot add x or o to any spaces after the game is over:
   if (store.gameState.over === true) {
-    ui.updateGameFailure('Game is over! Click "Start Game" to play again.')
+    ui.updateGameFailure('Game over! Lets play again!')
     // Cannot choose already occupied spots:
-  } else if (store.gameState.board[index] !== '') {
-    ui.updateGameFailure('This space is taken! Try another one.')
-  } else {
-// come back to check for winner instead of before move is made (line 64)
-//   const winner = gameOver(index)
+  }
+  else if (store.gameState.board[index] !== '') {
+    ui.updateGameFailure('Party foul! Do not click on boxes that are in play.')
+  }
+  else {
+    const winner = gameOver(index)
     // `!!winner` will change strings (bc truthy) into Boolean:
-    api.updateGame(index, store.gameState.currentPlayer, false, store.gameState.id)
-      .then((response) => ui.updateGameSuccess(response, false))
+    api.updateGame(index, store.gameState.currentPlayer, !!winner, store.gameState.id)
+      .then((response) => ui.updateGameSuccess(response, winner))
       .catch(ui.updateGameFailure)
   }
 }

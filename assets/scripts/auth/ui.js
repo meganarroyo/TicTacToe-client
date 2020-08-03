@@ -1,49 +1,72 @@
-const store = require('../store.js')
+'use strict'
 
-const signUpSuccess = function (){
-  $('#message').text('Sign up successful!')
+// Require:
+const store = require('../store')
+
+// Update the Screen Functions:
+// Only show sign up and sign in upon loading page:
+$('#authenticated').hide()
+$('#unauthenticated').show()
+
+// Sign Up:
+const signUpSuccess = function () {
+  $('#message').text('You are signed up! Now sign in to play!')
+  $('form').trigger('reset')
+}
+const signUpFailure = function () {
+  $('#message').text('Couldnt sign up! Please try again.')
 }
 
-const signUpFailure = function (){
-  $('#message').text('Sign up failure')
+// Sign In:
+const signInSuccess = function (response) {
+  $('#message').text('You are signed in! Time to play! Click "Start Game"')
+
+  store.user = response.user
+
+  $('form').trigger('reset')
+
+  // Remove sign up and sign in options, show the rest:
+  $('#authenticated').show()
+  $('#unauthenticated').hide()
+  $('#create-game').show()
+  $('#index-game').show()
+}
+const signInFailure = function () {
+  $('#message').text('Please try again! Did you forget your e-mail or password?')
 }
 
-const signInSuccess = function (data){
-  store.user = data.user
-  $('#message').text('Signed in!')
-}
+// Sign Out:
+const signOutSuccess = function () {
+  $('#message').text('You are signed out!')
 
-const signInFailure = function (){
-  $('#message').text('Sign In Failed')
-}
-
-const changePasswordSuccess = function (){
-  $('#message').text('Password Changed!')
-}
-
-const changePasswordFailure = function (){
-  $('#message').text('Password Not Changed')
-}
-
-const signOutSuccess = function (){
+  // Show only sign up and sign in again:
+  $('#unauthenticated').show()
+  $('#sign-up').show()
+  $('#authenticated').hide()
+  $('#game-started').hide()
+  $('#index-game').hide()
   store.user = null
-  $('#message').text('Signed Out!')
+}
+const signOutFailure = function () {
+  $('#message').text('You are still signed in!')
 }
 
-const signOutFailure = function (){
-  $('#message').text('Sign Out Failed')
+// Change Password:
+const changePasswordSuccess = function () {
+  $('#message').text('Password updated!')
+  $('form').trigger('reset')
 }
-
-
-
+const changePasswordFailure = function () {
+  $('#message').text('Password hasnt changed!')
+}
 
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
-  changePasswordSuccess,
-  changePasswordFailure,
   signOutSuccess,
   signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }

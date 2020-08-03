@@ -1,3 +1,5 @@
+'use strict'
+
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
@@ -18,7 +20,9 @@ const onSignIn = function (event) {
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+
 }
+
 const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
@@ -28,10 +32,11 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+
+
 const onSignOut = function (event) {
   event.preventDefault()
-
-  api.signOut()
+    api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }

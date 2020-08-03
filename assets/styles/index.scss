@@ -1,59 +1,100 @@
 @import '~bootstrap/scss/bootstrap';
 
-body {
-background-color: #4BBCF4;
-color: #FFB6B9;
-font-family: 'Shadows Into Light', cursive, 'sans-serif';
+$board-hover-color: #fafafa;
+$grid-border-color: #000;
 
+* {
+  font-weight: lighter;
+  letter-spacing: 2px;
 }
 
+button {
+  border-width: thick;
+}
 
-h1 {text-align: center;
-  font-size: 90px;
+body {
+  margin: 2%;
+  background-color: #4BBCF4;
+  color: #FFB6B9;
+  font-family: 'Shadows Into Light', cursive, 'sans-serif';
+}
+
+h1 {
+  text-align: center;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  position: sticky;
 }
 
 .first {font-size: 35px;
 }
 
-.score {
-text-align: center;
-font-size: 60px;
+div {
+  padding: 12px;
+
+  > form {
+    padding: 12px;
+    }
+  }
+
+.authenticated {
+  flex-flow: column wrap;
+  justify-content: center;
+  //position: relative;
+  align-items: center;
+  display: flex;
 }
 
-.p1 {
-  text-align: center;
-  font-size: 40px;
-}
- .p2 {
- text-align: center;
- font-size: 40px;
-}
- .tie {
- text-align: center;
- font-size: 40px;
+.board {
+  margin: auto;
+  max-width: calc(60vh - 55px);
+  max-height: calc(60vh - 55px);
 }
 
-.game-board {
-  width: 400px;
-	height: 400px;
-	margin: 0 auto;
-  background-color: #BBDED6;
-  color: #fff;
-  border: 4px solid #FAE3D3;
-  border-radius: 10px;
-	display: grid;
-	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+.box {
+  align-items: center;
+  border-bottom: 1px solid $grid-border-color;
+  border-right: 1px solid $grid-border-color;
+  display: flex;
+  font-size: 7vh;
+  justify-content: center;
+  min-height: calc(100% / 3);
+  user-select: none;
 
+  &:hover {
+    background-color: $board-hover-color;
+  }
+
+  // Select every 3rd element with 3n to remove most right vertical line:
+  &:nth-child(3n) {
+    border-right: 0;
+  }
+
+  // Select last 3 elements to remove most botton horizontal line:
+  &:nth-last-child(-1n + 3) {
+    border-bottom: 0;
+  }
 }
 
-.inside-box{
-  border: 2px solid #FAE3D3;
-  border-radius: 4px;
-  color: #61C0BF;
-  font-weight: bold;
-  font-size: 50px;
+.container {
+  height: 45vh;
+}
+
+.unauthenticated {
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+#message {
   display: flex;
   justify-content: center;
-  align-items: center;
-  cursor: pointer;
+}
+
+#index-game {
+  display: flex;
+  justify-content: flex-end;
 }

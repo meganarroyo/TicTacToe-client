@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
- <!-- cute font-->
+<!-- cute font-->
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-
-
-
     <head>
-      <title>Tic-Toc-Toe</title>
-
+      <title>tic-tac-toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -18,67 +14,61 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic-Tac-Toe</h1>
+      <h1>tic-tac-toe</h1>
 
+      <p id="message"></p>
 
-<p id="message"></p>
+      <div class="unauthenticated" id="unauthenticated">
+        <form class="sign-up" id="sign-up">
+          <input name="credentials[email]" placeholder="email here" type="text">
+          <input name="credentials[password]" placeholder="password here" type="password">
+          <input name="credentials[password_confirmation]" placeholder="confirm password here" type="password">
+          <button type="submit">sign up!</button>
+        </form>
 
-<!-- user sign up page-->
-<div class="unauthenticated">
-        <form id="sign-up">
-        <input name="credentials[email]" placeholder="email here" type="email">
+        <br>
+
+        <form id="sign-in">
+        <input name="credentials[email]" placeholder="email here" type="text">
         <input name="credentials[password]" placeholder="password here" type="password">
-        <input name="credentials[password_confirmation]" placeholder="confirm password here" type="password">
-        <button type="submit">Sign Up</button>
+        <button type="submit">sign in!</button>
       </form>
+      </div>
 
-      <form id="sign-in">
-        <input name="credentials[email]" placeholder="email here" type="email">
-        <input name="credentials[password]" placeholder="password here" type="password">
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
+      <div class="authenticated" id="authenticated">
+        <form id="sign-out">
+          <button type="submit">sign out</button>
+        </form>
 
-<div class="authenticated">
-      <form id="change-password">
-        <input name="passwords[old]" placeholder="old password" type="password">
-        <input name="passwords[new]" placeholder="new password" type="password">
-        <button type="submit">Change Password</button>
-      </form>
+        <form id="change-password">
+          <input name="passwords[old]" placeholder="old password" type="password">
+          <input name="passwords[new]" placeholder="new password" type="password">
+          <button type="submit">Change Password</button>
+        </form>
 
-      <form id="sign-out">
-        <button type="submit">Sign Out</button>
-      </form>
+        <form id="create-game">
+          <button type="submit">Start Game</button>
+        </form>
 
-<!--user page ends-->
+      </div>
 
-  <div class="game-board">
-      <div data-id="0" class="inside-box"></div>
-      <div data-id="1" class="inside-box"></div>
-      <div data-id="2" class="inside-box"></div>
-      <div data-id="3" class="inside-box"></div>
-      <div data-id="4" class="inside-box"></div>
-      <div data-id="5" class="inside-box"></div>
-      <div data-id="4" class="inside-box"></div>
-      <div data-id="6" class="inside-box"></div>
-      <div data-id="7" class="inside-box"></div>
+      <div id="game-started">
+        <section class="container">
+          <div class="row h-100 board">
+            <div class="col-4 box" id="cell-0"></div>
+            <div class="col-4 box" id="cell-1"></div>
+            <div class="col-4 box" id="cell-2"></div>
+            <div class="col-4 box" id="cell-3"></div>
+            <div class="col-4 box" id="cell-4"></div>
+            <div class="col-4 box" id="cell-5"></div>
+            <div class="col-4 box" id="cell-6"></div>
+            <div class="col-4 box" id="cell-7"></div>
+            <div class="col-4 box" id="cell-8"></div>
+          </div>
+        </section>
+      </div>
 
-    </div>
+        <p id="index-game"></p>
 
-
-<br>
-
-<div>
-<h2 class ="score"> Score: </h2>
-<h3 class="p1"> Player X: </h3>
-<h3 class="p2"> Player O: </h3>
-<h3 class="tie"> Tie: </h3>
-
-</div>
-
-<div class="game-over">
-    </div>
-<button id="newGame">New Game!</button>
-
-  </body>
-  </html>
+    </body>
+</html>
