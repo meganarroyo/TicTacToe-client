@@ -6,5 +6,6 @@ This was my first completed project during my course at GA. In my game, I used H
 
 Unsolved Problems:
 UI designs - I wasn't able to create images for the board like I originally wanted to do.
+Making the computer play against the user would be another function I would've liked to have added
 
 User Stories:
